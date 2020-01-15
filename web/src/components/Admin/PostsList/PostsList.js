@@ -1,14 +1,5 @@
 import { useMutation } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
-import moment from 'moment'
-
-const HIDE_POST_MUTATION = gql`
-  mutation HidePostMutation($id: ID!) {
-    hidePost(id: $id) {
-      id
-    }
-  }
-`
 
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: ID!) {
@@ -18,101 +9,80 @@ const DELETE_POST_MUTATION = gql`
   }
 `
 
-const wordCount = (post) => {
-  return post.body.split(' ').length
-}
-
 const PostsList = ({ posts }) => {
-  const [hidePost] = useMutation(HIDE_POST_MUTATION, {
-    onCompleted: () => {
-      location.reload()
-    },
-  })
-
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
     onCompleted: () => {
       location.reload()
     },
   })
 
-  const onHideClick = (event) => {
-    const id = event.target.dataset.id
-    const title = event.target.dataset.title
-
-    if (confirm(`Are you sure you want to un-publish post "${title}"?`)) {
-      hidePost({ variables: { id: parseInt(id) } })
-    }
-  }
-
   const onDeleteClick = (event) => {
     const id = event.target.dataset.id
-    const title = event.target.dataset.title
 
-    if (confirm(`Are you sure you want to delete post "${title}"?`)) {
+    if (confirm(`Are you sure you want to delete post ${id}?`)) {
       deletePost({ variables: { id: parseInt(id) } })
     }
   }
 
   return (
-    <table className="w-full">
+    <table className="table-auto w-full zebra text-sm">
+      <thead>
+        <tr>
+          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+            id
+          </th>
+          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+            title
+          </th>
+          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+            body
+          </th>
+          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+            createdAt
+          </th>
+          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+            Actions
+          </th>
+        </tr>
+      </thead>
       <tbody>
         {posts.map((post) => (
           <tr key={post.id}>
-            <td className="py-2">
-              <Link
-                to={routes.adminEdit({ id: post.id })}
-                className="font-semibold text-indigo-700"
-              >
-                {post.title}
-              </Link>
-              <p className="text-sm text-gray-600">by {post.author}</p>
-            </td>
-            <td className="py-2 text-sm text-center">
-              {wordCount(post)} words
-            </td>
-            <td className="py-2 text-sm text-right">
-              {post.postedAt ? (
-                <>
-                  <span className="block">
-                    Published{' '}
-                    <time dateTime={post.postedAt}>
-                      {moment(post.postedAt).fromNow()}
-                    </time>
-                  </span>
-                  <time
-                    className="block text-gray-500"
-                    dateTime={post.postedAt}
-                  >
-                    {moment(post.postedAt).format('LLLL')}
-                  </time>
-                </>
-              ) : (
-                <span className="text-xs bg-gray-300 text-gray-600 font-semibold tracking-wide uppercase px-2 py-1 rounded">
-                  Draft
-                </span>
-              )}
-            </td>
-            <td className="py-2 text-right text-xs">
-              {post.postedAt && (
-                <a
-                  href="#"
-                  data-id={post.id}
-                  data-title={post.title}
-                  className="mr-3 text-indigo-600 hover:underline"
-                  onClick={onHideClick}
-                >
-                  Hide
-                </a>
-              )}
-              <a
-                href="#"
-                data-id={post.id}
-                data-title={post.title}
-                className="text-red-600 hover:underline"
-                onClick={onDeleteClick}
-              >
-                Delete
-              </a>
+            <td className="py-2 border-b">{post.id}</td>
+            <td className="py-2 border-b">{post.title}</td>
+            <td className="py-2 border-b">{post.body.substring(0, 50)}</td>
+            <td className="py-2 border-b">{post.postedAt}</td>
+            <td className="py-2 border-b">
+              <nav>
+                <ul>
+                  <li className="inline-block">
+                    <Link
+                      to={routes.post({ id: post.id })}
+                      className="text-blue-600 hover:text-blue-800 underline hover:no-underline"
+                    >
+                      Show
+                    </Link>
+                  </li>
+                  <li className="inline-block ml-2">
+                    <Link
+                      to={routes.editPost({ id: post.id })}
+                      className="text-blue-600 hover:text-blue-800 underline hover:no-underline"
+                    >
+                      Edit
+                    </Link>
+                  </li>
+                  <li className="inline-block ml-2">
+                    <a
+                      href="#"
+                      data-id={post.id}
+                      className="text-red-600 hover:text-red-800 underline hover:no-underline"
+                      onClick={onDeleteClick}
+                    >
+                      Delete
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </td>
           </tr>
         ))}

@@ -1,9 +1,9 @@
 import BlogLayout from 'src/layouts/BlogLayout'
-
 import { useParams } from '@redwoodjs/router'
+
 import SinglePostCell from 'src/components/Blog/SinglePostCell'
 
-const PostPage = () => {
+const PPostPage = () => {
   const { slug } = useParams()
   return (
     <BlogLayout>
@@ -12,4 +12,4 @@ const PostPage = () => {
   )
 }
 
-export default PostPage
+export default PPostPage
