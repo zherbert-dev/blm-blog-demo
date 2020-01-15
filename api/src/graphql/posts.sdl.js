@@ -1,16 +1,13 @@
 import { gql } from '@redwoodjs/api'
+
 import Posts from 'src/services/posts'
 
 export const schema = gql`
   type Post {
     id: ID!
     title: String!
-    slug: String!
     body: String!
-    author: String!
-    image: String
-    postedAt: DateTime
-    tags: [Tag]
+    createdAt: DateTime
   }
 
   type PostsSet {
@@ -28,11 +25,7 @@ export const schema = gql`
 
   input PostInput {
     title: String!
-    slug: String!
-    author: String!
     body: String!
-    image: String
-    postedAt: DateTime
   }
 
   type Mutation {

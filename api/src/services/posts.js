@@ -14,12 +14,15 @@ const validate = (input) => {
 }
 
 const Posts = {
-  allPosts: async ({ page = 1, limit = 100, order = { postedAt: 'desc' } }) => {
+  allPosts: async ({
+    page = 1,
+    limit = 100,
+    order = { createdAt: 'desc' },
+  }) => {
     const offset = (page - 1) * limit
 
     return {
       posts: photon.posts.findMany({
-        include: { tags: true },
         first: limit,
         skip: offset,
         orderBy: order,
@@ -31,14 +34,12 @@ const Posts = {
   findPostById: ({ id }) => {
     return photon.posts.findOne({
       where: { id: parseInt(id) },
-      include: { tags: true },
     })
   },
 
   findPostBySlug: ({ slug }) => {
     return photon.posts.findOne({
       where: { slug: slug },
-      include: { tags: true },
     })
   },
 
@@ -47,7 +48,7 @@ const Posts = {
       .findOne({
         where: { name: tag },
       })
-      .posts({ include: { tags: true } })
+      .posts()
   },
 
   searchPosts: ({ term }) => {
@@ -55,7 +56,6 @@ const Posts = {
       where: {
         OR: [{ title: { contains: term } }, { body: { contains: term } }],
       },
-      include: { tags: true },
     })
   },
 
