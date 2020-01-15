@@ -13,10 +13,9 @@ import NotFoundPage from 'src/pages/NotFoundPage'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/posts" page={PostsPage} name="posts" />
-      <Route path="/posts/{id}" page={PostPage} name="post" />
-      <Route path="/posts/new" page={NewPostPage} name="newPost" />
       <Route path="/posts/{id}/edit" page={EditPostPage} name="editPost" />
+      <Route path="/posts/new" page={NewPostPage} name="newPost" />
+      <Route path="/posts" page={PostsPage} name="posts" />
 
       <Route path="/" page={HomePage} name="home" />
       <Route notfound page={NotFoundPage} />

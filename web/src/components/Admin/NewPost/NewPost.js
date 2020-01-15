@@ -1,4 +1,5 @@
 import { useMutation } from '@redwoodjs/web'
+import { navigate, routes } from '@redwoodjs/router'
 import PostForm from 'src/components/Admin/PostForm'
 
 const CREATE_POST_MUTATION = gql`
@@ -12,20 +13,17 @@ const CREATE_POST_MUTATION = gql`
 const NewPost = () => {
   const [createPost, { loading, error }] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: () => {
-      location.href = '/admin'
+      navigate(routes.posts())
     },
   })
 
-  const onSave = (data, type) => {
-    if (type === 'publish') {
-      data.postedAt = new Date()
-    }
+  const onSave = (data) => {
     createPost({ variables: { input: data } })
   }
 
   return (
     <div>
-      <h1 className="text-2xl font-semibold text-gray-600">New Post</h1>
+      <h2 className="text-xl font-semibold">New Post</h2>
       <div className="mt-8">
         <PostForm save={true} onSave={onSave} loading={loading} error={error} />
       </div>

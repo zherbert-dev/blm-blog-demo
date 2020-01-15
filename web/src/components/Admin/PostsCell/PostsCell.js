@@ -1,4 +1,4 @@
-import PostsList from 'src/components/Admin/PostsList'
+import Posts from 'src/components/Admin/Posts'
 
 export const QUERY = gql`
   query POSTS {
@@ -6,15 +6,8 @@ export const QUERY = gql`
       posts {
         id
         title
-        slug
-        author
         body
-        image
         postedAt
-        tags {
-          id
-          name
-        }
       }
     }
   }
@@ -23,5 +16,5 @@ export const QUERY = gql`
 export const Loading = () => <div>Loading...</div>
 
 export const Success = ({ allPosts }) => {
-  return <PostsList posts={allPosts.posts} />
+  return <Posts posts={allPosts.posts} />
 }

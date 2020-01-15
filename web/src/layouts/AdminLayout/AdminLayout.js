@@ -3,26 +3,6 @@ import netlifyIdentity from 'netlify-identity-widget'
 import { Link, routes } from '@redwoodjs/router'
 
 const AdminLayout = (props) => {
-  const [currentUser, setCurrentUser] = useState(netlifyIdentity.currentUser())
-  const isAuthEnabled = process.env.USE_AUTHENTICATION === 'true'
-
-  const signin = () => {
-    netlifyIdentity.open()
-    netlifyIdentity.on('login', (user) => {
-      setCurrentUser(user)
-      netlifyIdentity.close()
-    })
-  }
-
-  const signout = (event) => {
-    event.preventDefault()
-
-    netlifyIdentity.logout()
-    netlifyIdentity.on('logout', () => {
-      setCurrentUser(null)
-    })
-  }
-
   return (
     <div className="p-4">
       <header className="flex justify-between">

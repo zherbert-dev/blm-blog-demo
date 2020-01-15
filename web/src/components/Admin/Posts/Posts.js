@@ -25,23 +25,23 @@ const PostsList = ({ posts }) => {
   }
 
   return (
-    <table className="table-auto w-full zebra text-sm">
+    <table className="table-auto w-full text-sm">
       <thead>
         <tr>
-          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+          <th className="font-semibold text-left border-b-4 border-double pb-2">
             id
           </th>
-          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+          <th className="font-semibold text-left border-b-4 border-double pb-2">
             title
           </th>
-          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+          <th className="font-semibold text-left border-b-4 border-double pb-2">
             body
           </th>
-          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
+          <th className="font-semibold text-left border-b-4 border-double pb-2">
             createdAt
           </th>
-          <th className="font-semibold text-gray-600 text-left border-b-4 border-double pb-2">
-            Actions
+          <th className="font-semibold text-left border-b-4 border-double pb-2">
+            &nbsp;
           </th>
         </tr>
       </thead>
@@ -52,13 +52,13 @@ const PostsList = ({ posts }) => {
             <td className="py-2 border-b">{post.title}</td>
             <td className="py-2 border-b">{post.body.substring(0, 50)}</td>
             <td className="py-2 border-b">{post.postedAt}</td>
-            <td className="py-2 border-b">
+            <td className="py-2 border-b text-right">
               <nav>
                 <ul>
                   <li className="inline-block">
                     <Link
                       to={routes.post({ id: post.id })}
-                      className="text-blue-600 hover:text-blue-800 underline hover:no-underline"
+                      className="text-xs bg-blue-600 text-white hover:bg-blue-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
                     >
                       Show
                     </Link>
@@ -66,7 +66,7 @@ const PostsList = ({ posts }) => {
                   <li className="inline-block ml-2">
                     <Link
                       to={routes.editPost({ id: post.id })}
-                      className="text-blue-600 hover:text-blue-800 underline hover:no-underline"
+                      className="text-xs bg-blue-600 text-white hover:bg-blue-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
                     >
                       Edit
                     </Link>
@@ -75,7 +75,7 @@ const PostsList = ({ posts }) => {
                     <a
                       href="#"
                       data-id={post.id}
-                      className="text-red-600 hover:text-red-800 underline hover:no-underline"
+                      className="text-xs bg-red-600 text-white hover:bg-red-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
                       onClick={onDeleteClick}
                     >
                       Delete
