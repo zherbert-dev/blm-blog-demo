@@ -6,7 +6,7 @@ import FatalErrorPage from 'src/pages/FatalErrorPage'
 import FatalErrorBoundary from 'src/lib/FatalErrorBoundary'
 import Routes from 'src/Routes'
 
-import './index.css'
+import './scaffold.css'
 
 if (process.env.USE_AUTHENTICATION === 'true') {
   window.netlifyIdentity = netlifyIdentity
