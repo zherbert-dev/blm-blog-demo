@@ -1,8 +1,6 @@
 import { useMutation } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 
-import { truncate, datetimeTag } from 'src/lib/scaffold'
-
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: ID!) {
     deletePost(id: $id) {
@@ -10,6 +8,22 @@ const DELETE_POST_MUTATION = gql`
     }
   }
 `
+
+const truncate = (text) => {
+  let output = text
+  if (text.length > 100) {
+    output = output.substring(0, 100) + '...'
+  }
+  return output
+}
+
+const timeTag = (datetime) => {
+  return (
+    <time dateTime={datetime} title={datetime}>
+      {new Date(datetime).toUTCString()}
+    </time>
+  )
+}
 
 const PostsList = ({ posts }) => {
   const [deletePost] = useMutation(DELETE_POST_MUTATION, {
@@ -52,7 +66,7 @@ const PostsList = ({ posts }) => {
                 {truncate(post.body)}
               </td>
               <td className="p-3" title={post.createdAt}>
-                {datetimeTag(post.createdAt)}
+                {timeTag(post.createdAt)}
               </td>
               <td className="p-3 pr-4 text-right whitespace-no-wrap">
                 <nav>

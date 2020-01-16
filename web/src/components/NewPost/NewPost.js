@@ -22,11 +22,12 @@ const NewPost = () => {
   }
 
   return (
-    <div>
-      {console.log(error)}
-      <h2 className="text-xl font-semibold">New Post</h2>
-      <div className="mt-8">
-        <PostForm save={true} onSave={onSave} loading={loading} error={error} />
+    <div className="bg-white border rounded-lg overflow-hidden">
+      <header className="bg-gray-300 text-gray-700 py-3 px-4">
+        <h2 className="text-sm font-semibold">New Post</h2>
+      </header>
+      <div className="bg-gray-100 p-4">
+        <PostForm onSave={onSave} loading={loading} error={error} />
       </div>
     </div>
   )

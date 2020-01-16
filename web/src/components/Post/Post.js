@@ -25,33 +25,36 @@ const Post = ({ post }) => {
   }
 
   return (
-    <div>
-      <table className="text-sm">
+    <div className="bg-white border rounded-lg overflow-hidden">
+      <header className="bg-gray-300 text-gray-700 py-3 px-4">
+        <h2 className="text-sm font-semibold">Post {post.id} Detail</h2>
+      </header>
+      <table className="w-full text-sm">
         <tbody>
-          <tr>
-            <td className="font-semibold p-2 text-right">id</td>
-            <td className="p-2">{post.id}</td>
+          <tr className="odd:bg-gray-100 even:bg-white border-t">
+            <td className="font-semibold p-3 text-right md:w-1/5">id</td>
+            <td className="p-3">{post.id}</td>
           </tr>
-          <tr>
-            <td className="font-semibold p-2 text-right">title</td>
-            <td className="p-2">{post.title}</td>
+          <tr className="odd:bg-gray-100 even:bg-white border-t">
+            <td className="font-semibold p-3 text-right">title</td>
+            <td className="p-3">{post.title}</td>
           </tr>
-          <tr>
-            <td className="font-semibold p-2 text-right">body</td>
-            <td className="p-2">{post.body}</td>
+          <tr className="odd:bg-gray-100 even:bg-white border-t">
+            <td className="font-semibold p-3 text-right">body</td>
+            <td className="p-3">{post.body}</td>
           </tr>
-          <tr>
-            <td className="font-semibold p-2 text-right">postedAt</td>
-            <td className="p-2">{post.createdAt}</td>
+          <tr className="odd:bg-gray-100 even:bg-white border-t">
+            <td className="font-semibold p-3 text-right">createdAt</td>
+            <td className="p-3">{post.createdAt}</td>
           </tr>
         </tbody>
       </table>
-      <nav className="mt-4">
+      <nav className="my-4 mx-2 text-center">
         <ul>
           <li className="inline-block ml-2">
             <Link
               to={routes.editPost({ id: post.id })}
-              className="text-xs bg-blue-600 text-white hover:bg-blue-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
+              className="text-xs bg-blue-600 text-blue-200 hover:bg-blue-700 hover:text-white rounded px-3 py-2 uppercase font-semibold tracking-wide"
             >
               Edit
             </Link>
@@ -60,7 +63,7 @@ const Post = ({ post }) => {
             <a
               href="#"
               data-id={post.id}
-              className="text-xs bg-red-600 text-white hover:bg-red-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
+              className="text-xs bg-red-600 text-red-200 hover:bg-red-700 hover:text-white rounded px-3 py-2 uppercase font-semibold tracking-wide"
               onClick={onDeleteClick}
             >
               Delete

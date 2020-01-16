@@ -8,13 +8,13 @@ import {
 } from 'src/lib/RedwoodForm'
 
 const CSS = {
-  label: 'block mt-6 font-semibold',
-  labelError: 'block mt-6 font-semibold text-red-600',
+  label: 'block mt-6 text-gray-700 font-semibold',
+  labelError: 'block mt-6 font-semibold text-red-700',
   input:
-    'block mt-2 w-full p-2 border border-gray-500 text-gray-900 rounded focus:outline-none focus:border-indigo-300',
+    'block mt-2 w-full p-2 border border-gray-300 text-gray-700 rounded focus:outline-none focus:border-gray-500',
   inputError:
-    'block mt-2 w-full p-2 border border-red-500 text-red-900 rounded focus:outline-none',
-  errorMessage: 'block mt-1 font-semibold uppercase text-xs text-red-600',
+    'block mt-2 w-full p-2 border border-red-700 text-red-900 rounded focus:outline-none',
+  errorMessage: 'block mt-1 font-semibold uppercase text-xs text-red-700',
 }
 
 const PostForm = (props) => {
@@ -23,7 +23,7 @@ const PostForm = (props) => {
   }
 
   return (
-    <div className="text-sm">
+    <div className="text-sm -mt-4">
       <RedwoodForm onSubmit={onSubmit} error={props.error}>
         <RedwoodFormError
           error={props.error}
@@ -60,7 +60,7 @@ const PostForm = (props) => {
         />
         <FieldError name="body" className={CSS.errorMessage} />
 
-        <div className="mt-8">
+        <div className="mt-8 text-center">
           <Submit
             disabled={props.loading}
             className="px-6 py-2 bg-blue-700 text-white text-sm rounded uppercase font-semibold tracking-wider"

@@ -1,4 +1,5 @@
 import { useMutation } from '@redwoodjs/web'
+import { navigate, routes } from '@redwoodjs/router'
 import PostForm from 'src/components/PostForm'
 
 export const QUERY = gql`
@@ -25,12 +26,9 @@ export const beforeQuery = ({ id }) => {
 export const Loading = () => <div>Loading...</div>
 
 export const Success = ({ post }) => {
-  const [
-    updatePost,
-    { loading: updateLoading, error: updateError },
-  ] = useMutation(UPDATE_POST_MUTATION, {
+  const [updatePost, { loading, error }] = useMutation(UPDATE_POST_MUTATION, {
     onCompleted: () => {
-      location.href = '/admin'
+      navigate(routes.posts())
     },
   })
 
@@ -42,17 +40,12 @@ export const Success = ({ post }) => {
   }
 
   return (
-    <div>
-      <h2 className="text-lg font-semibold">Edit Post {post.id}</h2>
-      <div className="mt-8">
-        <PostForm
-          post={post}
-          save={false}
-          publish="Update"
-          onSave={onSave}
-          error={updateError}
-          loading={updateLoading}
-        />
+    <div className="bg-white border rounded-lg overflow-hidden">
+      <header className="bg-gray-300 text-gray-700 py-3 px-4">
+        <h2 className="text-sm font-semibold">Edit Post {post.id}</h2>
+      </header>
+      <div className="bg-gray-100 p-4">
+        <PostForm post={post} onSave={onSave} error={error} loading={loading} />
       </div>
     </div>
   )
