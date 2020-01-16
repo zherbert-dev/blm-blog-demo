@@ -32,11 +32,9 @@ const PostsList = ({ posts }) => {
     },
   })
 
-  const onDeleteClick = (event) => {
-    const id = event.target.dataset.id
-
+  const onDeleteClick = (id) => {
     if (confirm(`Are you sure you want to delete post ${id}?`)) {
-      deletePost({ variables: { id: parseInt(id) } })
+      deletePost({ variables: { id } })
     }
   }
 
@@ -93,9 +91,8 @@ const PostsList = ({ posts }) => {
                       <a
                         href="#"
                         title={`Delete post ${post.id}`}
-                        data-id={post.id}
                         className="text-xs bg-gray-100 text-red-600 hover:bg-red-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
-                        onClick={onDeleteClick}
+                        onClick={() => onDeleteClick(post.id)}
                       >
                         Delete
                       </a>

@@ -19,7 +19,7 @@ const CSS = {
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
-    props.onSave(data)
+    props.onSave(data, props?.post?.id)
   }
 
   return (

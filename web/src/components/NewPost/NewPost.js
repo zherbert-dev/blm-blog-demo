@@ -14,11 +14,12 @@ const NewPost = () => {
   const [createPost, { loading, error }] = useMutation(CREATE_POST_MUTATION, {
     onCompleted: () => {
       navigate(routes.posts())
+      location.reload()
     },
   })
 
-  const onSave = (data) => {
-    createPost({ variables: { input: data } })
+  const onSave = (input) => {
+    createPost({ variables: { input } })
   }
 
   return (

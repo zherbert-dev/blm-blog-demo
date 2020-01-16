@@ -1,5 +1,5 @@
-import NewPost from 'src/components/NewPost'
 import { Link, routes } from '@redwoodjs/router'
+import NewPost from 'src/components/NewPost'
 
 const NewPostPage = () => {
   return (

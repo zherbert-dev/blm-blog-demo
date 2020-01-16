@@ -12,7 +12,7 @@ export const QUERY = gql`
   }
 `
 const UPDATE_POST_MUTATION = gql`
-  mutation UpdatePost($id: ID!, $input: PostInput!) {
+  mutation UpdatePostMutation($id: ID!, $input: PostInput!) {
     updatePost(id: $id, input: $input) {
       id
     }
@@ -29,14 +29,12 @@ export const Success = ({ post }) => {
   const [updatePost, { loading, error }] = useMutation(UPDATE_POST_MUTATION, {
     onCompleted: () => {
       navigate(routes.posts())
+      location.reload()
     },
   })
 
-  const onSave = (data, type) => {
-    if (type === 'publish') {
-      data.postedAt = new Date()
-    }
-    updatePost({ variables: { id: parseInt(post.id), input: data } })
+  const onSave = (input, id) => {
+    updatePost({ variables: { id, input } })
   }
 
   return (
