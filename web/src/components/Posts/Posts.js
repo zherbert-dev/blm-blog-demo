@@ -12,7 +12,7 @@ const DELETE_POST_MUTATION = gql`
 const truncate = (text) => {
   let output = text
   if (text.length > 100) {
-    output = output.substring(0, 100) + '...'
+    output = output.substring(0, 150) + '...'
   }
   return output
 }
@@ -41,8 +41,8 @@ const PostsList = ({ posts }) => {
   }
 
   return (
-    <div className="bg-white text-gray-900 border rounded-lg overflow-hidden">
-      <table className="table-auto w-full text-sm">
+    <div className="bg-white text-gray-900 border rounded-lg overflow-x-scroll">
+      <table className="table-auto w-full min-w-3xl text-sm">
         <thead>
           <tr className="bg-gray-300 text-gray-700">
             <th className="font-semibold text-left p-3 pl-4">id</th>

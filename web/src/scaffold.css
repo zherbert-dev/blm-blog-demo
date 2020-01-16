@@ -30,3 +30,7 @@
 .even\:bg-gray-200:nth-child(even) {
   background-color: #edf2f7;
 }
+
+.min-w-3xl {
+  min-width: 48rem;
+}
