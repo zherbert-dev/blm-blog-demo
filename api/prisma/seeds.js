@@ -2,7 +2,6 @@
 const { Photon } = require('@prisma/photon')
 const photon = new Photon()
 
-
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array)
@@ -41,9 +40,7 @@ async function main() {
   const postData = [
     {
       title: 'Crucible Tool Lump Hammer',
-      slug: 'crucible-tool-lump-hammer',
-      author: 'Rob Cameron',
-      postedAt: new Date('2019-08-10 12:00:00'),
+      createdAt: new Date('2019-08-10 12:00:00'),
       body:
         'The Crucible lump hammer has a 2.2 lb. hardened steel head and is ideal for assembly, ' +
         'mortising, setting holdfasts and dozens of other chores. Comfortable octagonal hickory ' +
@@ -72,16 +69,10 @@ async function main() {
         'steel, hardened and tempered to Rc 28-32.  It is 11½” long overall with a head ' +
         'that is 1½” x 1½” x 4”. Striking faces are smooth- ground at a 5½” ' +
         'radius, and finished by hand. Designed by Raney Nelson. Made in the United States.',
-      image: 'https://cdn.filestackcontent.com/uBtP96HHSsa6Kv6qjgMP',
-      tags: {
-        connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
-      },
     },
     {
       title: 'Blue Spruce Toolworks Round Mallet',
-      slug: 'blue-spruce-toolworks-round-mallet',
-      author: 'Rob Cameron',
-      postedAt: new Date('2019-08-15 12:00:00'),
+      createdAt: new Date('2019-08-15 12:00:00'),
       body:
         'There are mallets, and then there are Blue Spruce Toolworks mallets. You use ' +
         'mallets, you drool on Blue Spruce Toolworks mallets.Of course you can use the Blue ' +
@@ -98,16 +89,10 @@ async function main() {
         'attached to the mallet head with a stainless steel tenon.A small brass bead lends ' +
         'just a touch of elegance.These mallets will quickly become a favorite for all but ' +
         'your heaviest striking needs.',
-      image: 'https://cdn.filestackcontent.com/joArZLOOQLSwqoGUGpgP',
-      tags: {
-        connect: [{ id: tags[0].id }, { id: tags[2].id }, { id: tags[3].id }],
-      },
     },
     {
       title: 'Lie-Nielsen Cross Peen Hammer',
-      slug: 'lie-nielsen-cross-peen-hammer',
-      author: 'Rob Cameron',
-      postedAt: new Date('2019-08-20 12:00:00'),
+      createdAt: new Date('2019-08-20 12:00:00'),
       body:
         'Thomas Lie-Nielsen sidled up to me with a drink in his hand, a sportscoat on his back and a sly look across his face.\n\n' +
         'He opened his green jacket to reveal… a stick.\n\n' +
@@ -120,30 +105,18 @@ async function main() {
         'So here’s the news: Lie-Nielsen Toolworks is going to begin making this hammer in both steel and brass. I don’t have information on pricing or availability, but who cares? I’m getting a set (or two) the minute they come out.\n\n' +
         'You see, I have a hammer problem. I probably have 20 or more of them, all different. Most of them came into my hands when I wrote about hammers for Woodworking Magazine a few years back, but for some reason I can’t seem to get rid of them.\n\n' +
         'But the Warrington’s size and weight have made it my favorite shop hammer (followed quickly by my 16-ounce Maydole hammer). And soon – thanks to Lie-Nielsen – you are going to be able to see if you agree with my assessment.\n\n',
-      image: 'https://cdn.filestackcontent.com/qep721l3RUCn531EBkU2',
-      tags: {
-        connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
-      },
     },
     {
       title: "Vertias Journeyman's Brass Mallet",
-      slug: 'veritas-journeymans-brass-mallet',
-      author: 'Rob Cameron',
-      postedAt: new Date('2019-10-01 12:00:00'),
+      createdAt: new Date('2019-10-01 12:00:00'),
       body:
         'This mallet can be used with a traditional grip or it can be nestled in the palm of your hand to exactly control the force used, a position preferred by carvers and sculptors or anyone doing work finer than mortising.\n\n' +
         'Unique to this type of mallet, the brass head has a blind threaded connection rather than a through hole for the handle; this gives the same feel and force to the 1 5/8" diameter top as the sides. The final turning of the handle is done after the handle is mounted, ensuring a perfectly smooth transition between brass head and cherry wood handle.\n\n' +
         'At 1¼ lb with an overall length of 6", it is as effective as it is graceful. Made in Canada.',
-      image: 'https://cdn.filestackcontent.com/GHj9JiUXQTeLqOA9HlfI',
-      tags: {
-        connect: [{ id: tags[0].id }, { id: tags[3].id }, { id: tags[4].id }],
-      },
     },
     {
       title: 'Filson Rip Hammer',
-      slug: 'filson-rip-hammer',
-      author: 'Rob Cameron',
-      postedAt: new Date('2019-10-30 12:00:00'),
+      createdAt: new Date('2019-10-30 12:00:00'),
       body:
         'A classic Rip Hammer made in the USA with solid, one-piece U.S. steel construction. Its matte-black finish resists corrosion, making it ideal for outdoor use and wet conditions. Stacked leather handle with Filson logo. Heavy 24-oz. head with a versatile straight claw.\n\n' +
         '* Rugged one-piece construction – no wood handle to fail\n' +
@@ -151,25 +124,15 @@ async function main() {
         '* Matte - black finish on head and neck protects against rust\n' +
         '* Genuine stacked leather handle\n' +
         '* 13½” length with heavy 24-oz.head and versatile straight claw',
-      image: 'https://cdn.filestackcontent.com/iDTWDVRSRmaH5Xs3M3g6',
-      tags: {
-        connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
-      },
     },
 
     {
       title: "Thor's Hammer Woodworking Mallet",
-      slug: 'thors-hammer-woodworking-mallet',
-      author: 'Rob Cameron',
-      postedAt: new Date('2019-11-21 12:00:00'),
+      createdAt: new Date('2019-11-21 12:00:00'),
       body:
         "We designed this piece to be a loose representation of the Legendary Thor's Hammer, Mjolnir, with hints of the Marvel Comic & Movie adaptations of his Hammer.\n\n" +
         "This is a fully functional Woodworking mallet. It is made of exotic wood in a replica of Thor's Hammer.\n\n" +
         'These mallets are built to last many lifetimes. The head is made from Lignum Vitae and the handle from Padauk.',
-      image: 'https://cdn.filestackcontent.com/NEhtuXrFS4esyZUITFpr',
-      tags: {
-        connect: [{ id: tags[0].id }, { id: tags[1].id }, { id: tags[3].id }],
-      },
     },
   ]
 

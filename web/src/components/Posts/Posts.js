@@ -1,6 +1,8 @@
 import { useMutation } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
 
+import { truncate, datetimeTag } from 'src/lib/scaffold'
+
 const DELETE_POST_MUTATION = gql`
   mutation DeletePostMutation($id: ID!) {
     deletePost(id: $id) {
@@ -25,69 +27,73 @@ const PostsList = ({ posts }) => {
   }
 
   return (
-    <table className="table-auto w-full text-sm">
-      <thead>
-        <tr>
-          <th className="font-semibold text-left border-b-4 border-double pb-2">
-            id
-          </th>
-          <th className="font-semibold text-left border-b-4 border-double pb-2">
-            title
-          </th>
-          <th className="font-semibold text-left border-b-4 border-double pb-2">
-            body
-          </th>
-          <th className="font-semibold text-left border-b-4 border-double pb-2">
-            createdAt
-          </th>
-          <th className="font-semibold text-left border-b-4 border-double pb-2">
-            &nbsp;
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        {posts.map((post) => (
-          <tr key={post.id}>
-            <td className="py-2 border-b">{post.id}</td>
-            <td className="py-2 border-b">{post.title}</td>
-            <td className="py-2 border-b">{post.body.substring(0, 50)}</td>
-            <td className="py-2 border-b">{post.createdAt}</td>
-            <td className="py-2 border-b text-right">
-              <nav>
-                <ul>
-                  <li className="inline-block">
-                    <Link
-                      to={routes.post({ id: post.id })}
-                      className="text-xs bg-blue-600 text-white hover:bg-blue-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
-                    >
-                      Show
-                    </Link>
-                  </li>
-                  <li className="inline-block ml-2">
-                    <Link
-                      to={routes.editPost({ id: post.id })}
-                      className="text-xs bg-blue-600 text-white hover:bg-blue-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
-                    >
-                      Edit
-                    </Link>
-                  </li>
-                  <li className="inline-block ml-2">
-                    <a
-                      href="#"
-                      data-id={post.id}
-                      className="text-xs bg-red-600 text-white hover:bg-red-800 rounded px-2 py-1 uppercase font-semibold tracking-wide"
-                      onClick={onDeleteClick}
-                    >
-                      Delete
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </td>
+    <div className="bg-white text-gray-900 border rounded-lg overflow-hidden">
+      <table className="table-auto w-full text-sm">
+        <thead>
+          <tr className="bg-gray-300 text-gray-700">
+            <th className="font-semibold text-left p-3 pl-4">id</th>
+            <th className="font-semibold text-left p-3">title</th>
+            <th className="font-semibold text-left p-3">body</th>
+            <th className="font-semibold text-left p-3">createdAt</th>
+            <th className="font-semibold text-left p-3 pr-4">&nbsp;</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {posts.map((post) => (
+            <tr
+              key={post.id}
+              className="odd:bg-gray-100 even:bg-white border-t"
+            >
+              <td className="p-3 pl-4">{post.id}</td>
+              <td className="p-3" title={post.title}>
+                {truncate(post.title)}
+              </td>
+              <td className="p-3" title={post.body}>
+                {truncate(post.body)}
+              </td>
+              <td className="p-3" title={post.createdAt}>
+                {datetimeTag(post.createdAt)}
+              </td>
+              <td className="p-3 pr-4 text-right whitespace-no-wrap">
+                <nav>
+                  <ul>
+                    <li className="inline-block">
+                      <Link
+                        to={routes.post({ id: post.id })}
+                        title={`Show post ${post.id} detail`}
+                        className="text-xs bg-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white rounded px-2 py-1 uppercase font-semibold tracking-wide"
+                      >
+                        Show
+                      </Link>
+                    </li>
+                    <li className="inline-block ml-2">
+                      <Link
+                        to={routes.editPost({ id: post.id })}
+                        title={`Edit post ${post.id}`}
+                        className="text-xs bg-blue-600 text-blue-200 hover:bg-blue-700 hover:text-white rounded px-2 py-1 uppercase font-semibold tracking-wide"
+                      >
+                        Edit
+                      </Link>
+                    </li>
+                    <li className="inline-block ml-2">
+                      <a
+                        href="#"
+                        title={`Delete post ${post.id}`}
+                        data-id={post.id}
+                        className="text-xs bg-red-600 text-red-200 hover:bg-red-700 hover:text-white rounded px-2 py-1 uppercase font-semibold tracking-wide"
+                        onClick={onDeleteClick}
+                      >
+                        Delete
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   )
 }
 
