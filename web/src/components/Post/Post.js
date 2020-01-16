@@ -54,7 +54,7 @@ const Post = ({ post }) => {
           <li className="inline-block ml-2">
             <Link
               to={routes.editPost({ id: post.id })}
-              className="text-xs bg-blue-600 text-blue-200 hover:bg-blue-700 hover:text-white rounded px-3 py-2 uppercase font-semibold tracking-wide"
+              className="text-xs bg-blue-600 text-white hover:bg-blue-700 rounded px-4 py-2 uppercase font-semibold tracking-wide"
             >
               Edit
             </Link>
@@ -63,7 +63,7 @@ const Post = ({ post }) => {
             <a
               href="#"
               data-id={post.id}
-              className="text-xs bg-red-600 text-red-200 hover:bg-red-700 hover:text-white rounded px-3 py-2 uppercase font-semibold tracking-wide"
+              className="text-xs bg-red-600 text-white hover:bg-red-700 rounded px-4 py-2 uppercase font-semibold tracking-wide"
               onClick={onDeleteClick}
             >
               Delete

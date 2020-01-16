@@ -3,7 +3,7 @@ import { Link, routes } from '@redwoodjs/router'
 
 const NewPostPage = () => {
   return (
-    <div className="bg-gray-100 h-screen font-sans">
+    <div className="bg-white font-sans">
       <header className="flex justify-between py-4 px-8">
         <h1 className="text-xl font-semibold">
           <Link
@@ -16,9 +16,10 @@ const NewPostPage = () => {
         <nav>
           <Link
             to={routes.newPost()}
-            className="bg-green-500 hover:bg-green-600 text-white text-xs font-semibold px-3 py-2 uppercase tracking-wide rounded"
+            className="flex bg-green-500 hover:bg-green-600 text-white text-xs font-semibold px-3 py-1 uppercase tracking-wide rounded"
           >
-            + New Post
+            <div className="text-xl leading-none">+</div>
+            <div className="ml-1 leading-loose">New Post</div>
           </Link>
         </nav>
       </header>

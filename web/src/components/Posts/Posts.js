@@ -75,26 +75,26 @@ const PostsList = ({ posts }) => {
                       <Link
                         to={routes.post({ id: post.id })}
                         title={`Show post ${post.id} detail`}
-                        className="text-xs bg-gray-600 text-gray-300 hover:bg-gray-700 hover:text-white rounded px-2 py-1 uppercase font-semibold tracking-wide"
+                        className="text-xs bg-gray-100 text-gray-600 hover:bg-gray-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >
                         Show
                       </Link>
                     </li>
-                    <li className="inline-block ml-2">
+                    <li className="inline-block">
                       <Link
                         to={routes.editPost({ id: post.id })}
                         title={`Edit post ${post.id}`}
-                        className="text-xs bg-blue-600 text-blue-200 hover:bg-blue-700 hover:text-white rounded px-2 py-1 uppercase font-semibold tracking-wide"
+                        className="text-xs bg-gray-100 text-blue-600 hover:bg-blue-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                       >
                         Edit
                       </Link>
                     </li>
-                    <li className="inline-block ml-2">
+                    <li className="inline-block">
                       <a
                         href="#"
                         title={`Delete post ${post.id}`}
                         data-id={post.id}
-                        className="text-xs bg-red-600 text-red-200 hover:bg-red-700 hover:text-white rounded px-2 py-1 uppercase font-semibold tracking-wide"
+                        className="text-xs bg-gray-100 text-red-600 hover:bg-red-600 hover:text-white rounded-sm px-2 py-1 uppercase font-semibold tracking-wide"
                         onClick={onDeleteClick}
                       >
                         Delete

@@ -63,7 +63,7 @@ const PostForm = (props) => {
         <div className="mt-8 text-center">
           <Submit
             disabled={props.loading}
-            className="px-6 py-2 bg-blue-700 text-white text-sm rounded uppercase font-semibold tracking-wider"
+            className="bg-blue-600 text-white hover:bg-blue-700 text-xs rounded px-4 py-2 uppercase font-semibold tracking-wide"
           >
             Save
           </Submit>
