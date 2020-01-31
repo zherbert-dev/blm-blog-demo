@@ -1,25 +1,24 @@
 module.exports = {
-  extends: "../babel.config.js",
+  extends: '../babel.config.js',
   presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
-        targets: "> 0.25%, not dead",
-        useBuiltIns: "usage",
-        corejs: 3
-      }
-    ]
+        targets: '> 0.25%, not dead',
+        useBuiltIns: 'usage',
+        corejs: 3,
+      },
+    ],
   ],
   plugins: [
-    "@babel/plugin-transform-runtime",
     [
-      "babel-plugin-module-resolver",
+      'babel-plugin-module-resolver',
       {
         alias: {
-          src: "./src"
-        }
-      }
+          src: './src',
+        },
+      },
     ],
-    "babel-plugin-styled-components"
-  ]
-};
+    'babel-plugin-styled-components',
+  ],
+}

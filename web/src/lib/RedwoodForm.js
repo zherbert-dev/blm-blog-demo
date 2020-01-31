@@ -1,6 +1,5 @@
 import useForm, { FormContext, useFormContext } from 'react-hook-form'
 import { useContext } from 'react'
-import '@gouch/to-title-case'
 
 const DEFAULT_MESSAGES = {
   required: 'is required',
@@ -97,14 +96,20 @@ const RedwoodFormError = ({
 const RedwoodForm = (props) => {
   // deconstruct some props we care about and keep the remaining `formProps` to
   // pass to the <form> tag
-  let { error: errorProps, formMethods, onSubmit, ...formProps } = props
-  formMethods = formMethods || useForm(props.validation)
+  const {
+    error: errorProps,
+    formMethods: propFormMethods,
+    onSubmit,
+    ...formProps
+  } = props
+  const useFormMethods = useForm(props.validation)
+  const formMethods = propFormMethods || useFormMethods
 
   return (
     <form {...formProps} onSubmit={formMethods.handleSubmit(onSubmit)}>
       <FieldErrorContext.Provider
         value={
-          props.error?.graphQLErrors[0]?.extensions?.exception?.messages || {}
+          errorProps?.graphQLErrors[0]?.extensions?.exception?.messages || {}
         }
       >
         <FormContext {...formMethods}>{props.children}</FormContext>
@@ -135,7 +140,7 @@ const FieldError = (props) => {
   const errorMessage =
     validationError &&
     (validationError.message ||
-      `${props.name.toTitleCase()} ${DEFAULT_MESSAGES[validationError.type]}`)
+      `${props.name} ${DEFAULT_MESSAGES[validationError.type]}`)
 
   return validationError ? <span {...props}>{errorMessage}</span> : null
 }

@@ -5,7 +5,7 @@ import {
   Label,
   TextField,
   Submit,
-} from 'src/lib/RedwoodForm'
+} from '@redwoodjs/web'
 
 const CSS = {
   label: 'block mt-6 text-gray-700 font-semibold',
@@ -19,7 +19,8 @@ const CSS = {
 
 const PostForm = (props) => {
   const onSubmit = (data) => {
-    props.onSave(data, props?.post?.id)
+    // props.onSave(data, props?.post?.id)
+    console.info(data)
   }
 
   return (
