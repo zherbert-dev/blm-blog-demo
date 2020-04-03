@@ -7,11 +7,11 @@ export const schema = gql`
     author: String!
     image: String
     postedAt: DateTime
-    tags: [Tag]
+    tags: [Tag!]!
   }
 
   type PostsSet {
-    posts: [Post]!
+    posts: [Post!]!
     count: Int!
   }
 
@@ -19,7 +19,6 @@ export const schema = gql`
     allPosts(page: Int, limit: Int): PostsSet
     findPostById(id: ID): Post
     findPostBySlug(slug: String): Post
-    findPostsByTag(tag: String): [Post]
     searchPosts(term: String): [Post]
   }
 

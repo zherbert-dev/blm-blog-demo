@@ -21,7 +21,6 @@ export const allPosts = async ({
 
   return {
     posts: db.post.findMany({
-      include: { tags: true },
       first: limit,
       skip: offset,
       orderBy: order,
@@ -32,24 +31,14 @@ export const allPosts = async ({
 
 export const findPostById = ({ id }) => {
   return db.post.findOne({
-    where: { id: parseInt(id) },
-    include: { tags: true },
+    where: { id },
   })
 }
 
 export const findPostBySlug = ({ slug }) => {
   return db.post.findOne({
     where: { slug: slug },
-    include: { tags: true },
   })
-}
-
-export const findPostsByTag = ({ tag }) => {
-  return db.tag
-    .findOne({
-      where: { name: tag },
-    })
-    .posts({ include: { tags: true } })
 }
 
 export const searchPosts = ({ term }) => {
@@ -57,7 +46,6 @@ export const searchPosts = ({ term }) => {
     where: {
       OR: [{ title: { contains: term } }, { body: { contains: term } }],
     },
-    include: { tags: true },
   })
 }
 
@@ -78,7 +66,7 @@ export const updatePost = ({ id, input }) => {
 export const hidePost = ({ id }) => {
   return db.post.update({
     data: { postedAt: null },
-    where: { id: parseInt(id) },
+    where: { id },
   })
 }
 
@@ -86,4 +74,8 @@ export const deletePost = ({ id }) => {
   return db.post.delete({
     where: { id: Number(id) },
   })
+}
+
+export const Post = {
+  tags: (_obj, { root }) => db.post.findOne({ where: { id: root.id } }).tags(),
 }
