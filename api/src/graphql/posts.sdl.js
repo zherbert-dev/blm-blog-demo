@@ -1,6 +1,6 @@
 export const schema = gql`
   type Post {
-    id: ID!
+    id: Int!
     title: String!
     slug: String!
     body: String!
@@ -17,7 +17,7 @@ export const schema = gql`
 
   type Query {
     allPosts(page: Int, limit: Int): PostsSet
-    findPostById(id: ID): Post
+    findPostById(id: Int): Post
     findPostBySlug(slug: String): Post
     searchPosts(term: String): [Post]
   }
@@ -33,8 +33,8 @@ export const schema = gql`
 
   type Mutation {
     createPost(input: PostInput!): Post
-    updatePost(id: ID!, input: PostInput!): Post
-    hidePost(id: ID!): Post
-    deletePost(id: ID!): Post
+    updatePost(id: Int!, input: PostInput!): Post
+    hidePost(id: Int!): Post
+    deletePost(id: Int!): Post
   }
 `

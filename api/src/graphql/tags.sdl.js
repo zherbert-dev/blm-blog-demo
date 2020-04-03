@@ -1,6 +1,6 @@
 export const schema = gql`
   type Tag {
-    id: ID!
+    id: Int!
     name: String
     posts: [Post!]!
   }
