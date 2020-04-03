@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 const { PrismaClient } = require('@prisma/client')
-const prisma = new PrismaClient()
+const db = new PrismaClient()
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
@@ -31,7 +31,7 @@ async function main() {
 
   await asyncForEach(tagData, async (tag) => {
     tags.push(
-      await prisma.tag.create({
+      await db.tag.create({
         data: tag,
       })
     )
@@ -177,7 +177,7 @@ async function main() {
   await asyncForEach(postData, async (post) => {
     console.log(`Creating ${post.title}...`)
     posts.push(
-      await prisma.post.create({
+      await db.post.create({
         data: post,
       })
     )
@@ -189,5 +189,5 @@ async function main() {
 main()
   .catch((e) => console.error(e))
   .finally(async () => {
-    await prisma.disconnect()
+    await db.disconnect()
   })
