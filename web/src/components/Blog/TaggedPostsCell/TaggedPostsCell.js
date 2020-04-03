@@ -1,8 +1,8 @@
 import Post from 'src/components/Blog/Post'
 
 export const QUERY = gql`
-  query POST($tag: String) {
-    tagWithPosts: tag(name: $tag) {
+  query POST($tagName: String) {
+    tag(name: $tagName) {
       id
       name
       posts {
@@ -20,9 +20,9 @@ export const QUERY = gql`
 
 export const Loading = () => <div>Loading...</div>
 
-export const Success = ({ tagWithPosts }) => {
-  console.info(tagWithPosts)
-  return tagWithPosts.posts.map((post) => (
+export const Success = ({ tag }) => {
+  console.info(tag)
+  return tag.posts.map((post) => (
     <Post key={post.id} post={post} summary={true} />
   ))
 }
