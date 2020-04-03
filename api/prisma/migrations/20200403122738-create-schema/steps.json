@@ -3,13 +3,13 @@
   "steps": [
     {
       "tag": "CreateSource",
-      "source": "hammerDatasource"
+      "source": "datasource"
     },
     {
       "tag": "CreateArgument",
       "location": {
         "tag": "Source",
-        "source": "hammerDatasource"
+        "source": "datasource"
       },
       "argument": "provider",
       "value": "\"sqlite\""
@@ -18,7 +18,7 @@
       "tag": "CreateArgument",
       "location": {
         "tag": "Source",
-        "source": "hammerDatasource"
+        "source": "datasource"
       },
       "argument": "url",
       "value": "env(\"DB_HOST\")"
@@ -119,16 +119,41 @@
     {
       "tag": "CreateField",
       "model": "Post",
+      "field": "postedAt",
+      "type": "DateTime",
+      "arity": "Optional"
+    },
+    {
+      "tag": "CreateField",
+      "model": "Post",
       "field": "tags",
       "type": "Tag",
       "arity": "List"
     },
     {
-      "tag": "CreateField",
-      "model": "Post",
-      "field": "postedAt",
-      "type": "DateTime",
-      "arity": "Optional"
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Post",
+          "field": "tags"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Post",
+          "field": "tags"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
     },
     {
       "tag": "CreateModel",
@@ -201,6 +226,31 @@
       "field": "posts",
       "type": "Post",
       "arity": "List"
+    },
+    {
+      "tag": "CreateDirective",
+      "location": {
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "posts"
+        },
+        "directive": "relation"
+      }
+    },
+    {
+      "tag": "CreateArgument",
+      "location": {
+        "tag": "Directive",
+        "path": {
+          "tag": "Field",
+          "model": "Tag",
+          "field": "posts"
+        },
+        "directive": "relation"
+      },
+      "argument": "references",
+      "value": "[id]"
     },
     {
       "tag": "CreateModel",
