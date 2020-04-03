@@ -2,7 +2,7 @@ import { useMutation } from '@redwoodjs/web'
 import PostForm from 'src/components/Admin/PostForm'
 
 export const QUERY = gql`
-  query FIND_POST_BY_ID($id: ID!) {
+  query FIND_POST_BY_ID($id: Int!) {
     post: findPostById(id: $id) {
       id
       title
