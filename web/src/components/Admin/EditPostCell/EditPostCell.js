@@ -46,7 +46,7 @@ export const Success = ({ post }) => {
     if (type === 'publish') {
       data.postedAt = new Date()
     }
-    updatePost({ variables: { id: parseInt(post.id), input: data } })
+    updatePost({ variables: { id: post.id, input: data } })
   }
 
   return (

@@ -2,8 +2,7 @@ import Post from 'src/components/Blog/Post'
 import Pagination from 'src/components/Blog/Pagination'
 
 export const beforeQuery = ({ page, perPage }) => {
-  page = page ? parseInt(page) : 1
-  return { variables: { page: page, limit: perPage } }
+  return { variables: { page: page || 1, limit: perPage } }
 }
 
 export const QUERY = gql`

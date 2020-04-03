@@ -40,7 +40,7 @@ const PostsList = ({ posts }) => {
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to un-publish post "${title}"?`)) {
-      hidePost({ variables: { id: parseInt(id) } })
+      hidePost({ variables: { id } })
     }
   }
 
@@ -49,7 +49,7 @@ const PostsList = ({ posts }) => {
     const title = event.target.dataset.title
 
     if (confirm(`Are you sure you want to delete post "${title}"?`)) {
-      deletePost({ variables: { id: parseInt(id) } })
+      deletePost({ variables: { id } })
     }
   }
 
