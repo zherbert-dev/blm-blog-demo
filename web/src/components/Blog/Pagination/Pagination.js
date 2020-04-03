@@ -6,7 +6,7 @@ const Pagination = ({ count, page, perPage }) => {
     items.push(
       <li key={i} className="inline-block mx-1 text-indigo-400">
         <Link
-          to={routes.home({ page: i + 1 })}
+          to={routes.page({ page: i + 1 })}
           className={
             page === i + 1
               ? 'py-1 px-3 bg-indigo-100 text-indigo-600 rounded'
