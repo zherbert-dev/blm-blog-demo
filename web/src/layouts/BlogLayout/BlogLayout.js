@@ -81,7 +81,7 @@ const BlogLayout = (props) => {
           </section>
         </main>
         <footer className="bg-indigo-600 text-indigo-200 text-sm text-center py-4">
-          Copyright ©2019 Hammers, Inc.
+          Copyright ©2019 Harrisonburg BLM Movement
         </footer>
       </div>
     </div>
