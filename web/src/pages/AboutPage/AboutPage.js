@@ -1,5 +1,5 @@
 import BlogLayout from 'src/layouts/BlogLayout'
-import image from 'web/public/images/wall-o-hammers.jpg'
+import image from 'web/public/images/downtown-march-heading-img.jpeg'
 
 const AboutPage = () => {
   return (
@@ -10,7 +10,6 @@ const AboutPage = () => {
             <img alt="Wall of hammers" src={image} />
           </div>
           <figcaption className="text-right text-xs text-gray-500">
-            Image from https://www.juritroy.com/en/office/hammer-collection
           </figcaption>
         </figure>
 

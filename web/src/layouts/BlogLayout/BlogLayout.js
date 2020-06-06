@@ -45,6 +45,15 @@ const BlogLayout = (props) => {
               </li>
               <li className="mx-4 font-semibold uppercase">
                 <NavLink
+                  to={routes.events()}
+                  className="text-purple-600 hover:text-indigo-800"
+                  activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
+                >
+                  Events
+                </NavLink>
+              </li>
+              <li className="mx-4 font-semibold uppercase">
+                <NavLink
                   to={routes.contact()}
                   className="text-purple-600 hover:text-indigo-800"
                   activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
