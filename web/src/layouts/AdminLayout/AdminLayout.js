@@ -22,7 +22,7 @@ const AdminLayout = (props) => {
               to={routes.admin()}
               className="text-xl font-semibold leading-none"
             >
-              Hammer Review Admin
+              BLM Admin
             </Link>
           </h1>
         </div>

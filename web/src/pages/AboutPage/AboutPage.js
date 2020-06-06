@@ -15,7 +15,7 @@ const AboutPage = () => {
         </figure>
 
         <p className="mt-4">
-          <strong className="font-semibold">Hammer Review</strong> is a sample
+          <strong className="font-semibold">Harrisonburg BLM Chapter</strong> is a sample
           application created with the{' '}
           <a className="underline" href="https://redwoodjs.com">
             Redwood Framework
