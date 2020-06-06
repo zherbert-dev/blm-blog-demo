@@ -3,7 +3,6 @@ import { Router, Private, Route } from '@redwoodjs/router'
 const Routes = () => {
   return (
     <Router>
-      <Route path="/events" page={EventsPage} name="events" />
         <Route path="/admin" page={AdminPostsPage} name="admin" />
         <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
         <Route
@@ -17,6 +16,7 @@ const Routes = () => {
       <Route path="/about" page={AboutPage} name="about" />
       <Route path="/contact" page={ContactPage} name="contact" />
       <Route path="/posts/{slug}" page={PostPage} name="post" />
+      <Route path="/events" page={EventsPage} name="events" />
       <Route path="/tags/{tag}" page={TaggedPostsPage} name="tag" />
       <Route path="/search/{term}" page={SearchPage} name="search" />
 

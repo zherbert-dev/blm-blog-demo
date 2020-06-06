@@ -1,10 +1,9 @@
-import BlogLayout from 'src/layouts/BlogLayout'
-
+import HeaderOnlyLayout from 'src/layouts/HeaderOnlyLayout'
 
 const EventPage = () => {
   return (
-    <BlogLayout>
-    </BlogLayout>
+    <HeaderOnlyLayout>
+    </HeaderOnlyLayout>
   )
 }
 
