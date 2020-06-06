@@ -67,21 +67,21 @@ export const postsCount = () => {
 }
 
 export const createPost = ({ input }, { context: { currentUser } }) => {
-  requireAuth()
+  //requireAuth()
   validate(input)
 
   return db.post.create({ data: input })
 }
 
 export const updatePost = ({ id, input }, { context: { currentUser } }) => {
-  requireAuth()
+  //requireAuth()
   validate(input)
 
   return db.post.update({ data: input, where: { id: Number(id) } })
 }
 
 export const hidePost = ({ id }, { context: { currentUser } }) => {
-  requireAuth()
+  //requireAuth()
 
   return db.post.update({
     data: { postedAt: null },
