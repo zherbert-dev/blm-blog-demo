@@ -90,8 +90,6 @@ export const hidePost = ({ id }, { context: { currentUser } }) => {
 }
 
 export const deletePost = ({ id }, { context: { currentUser } }) => {
-  requireAuth()
-
   return db.post.delete({
     where: { id: Number(id) },
   })
