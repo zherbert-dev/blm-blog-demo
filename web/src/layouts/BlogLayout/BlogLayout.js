@@ -20,7 +20,7 @@ const BlogLayout = (props) => {
         </div>
       )}
       <div className="sm:mx-8">
-        <header className="md:flex flex-wrap items-center border-b-4 border-indigo-300 bg-indigo-600 text-white px-8 py-6 ">
+        <header className="md:flex flex-wrap items-center border-b-4 border-purple-600 bg-black text-white px-8 py-6 ">
           <div className="flex flex-1">
             <div className="flex-grow mt-1 text-center md:text-left">
               <Link to={routes.home()}>
@@ -37,7 +37,7 @@ const BlogLayout = (props) => {
               <li className="mx-4 font-semibold uppercase">
                 <NavLink
                   to={routes.about()}
-                  className="text-indigo-200 hover:text-indigo-800"
+                  className="text-purple-600 hover:text-indigo-800"
                   activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
                 >
                   About
@@ -46,7 +46,7 @@ const BlogLayout = (props) => {
               <li className="mx-4 font-semibold uppercase">
                 <NavLink
                   to={routes.contact()}
-                  className="text-indigo-200 hover:text-indigo-800"
+                  className="text-purple-600 hover:text-indigo-800"
                   activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
                 >
                   Contact
@@ -57,7 +57,7 @@ const BlogLayout = (props) => {
                   <NavLink
                     to={routes.admin()}
                     className="text-white hover:text-indigo-800"
-                    activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
+                    activeClassName="bg-white text-purple-600 px-2 py-1 rounded"
                   >
                     Admin
                   </NavLink>
@@ -66,7 +66,7 @@ const BlogLayout = (props) => {
               <li className="mx-4 font-semibold uppercase">
                 <a
                   onClick={doAuth}
-                  className="cursor-pointer text-indigo-200 hover:text-indigo-800"
+                  className="cursor-pointer text-purple-600 hover:text-indigo-800"
                 >
                   {authenticated ? 'Logout' : 'Login'}
                 </a>
