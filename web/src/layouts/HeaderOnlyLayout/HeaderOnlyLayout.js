@@ -34,24 +34,6 @@ const HeaderOnlyLayout = (props) => {
               </Link>
             </div>
           </div>
-          <div>
-          <Link to='https://facebook.com'>
-              <img
-                className="w-56 inline-block"
-                src={FbLogo}
-                alt="Facebook Page"
-              />
-            </Link>
-          </div>
-          <div>
-          <Link to=''>
-            <img
-              className="w-56 inline-block"
-              src={TwitterLogo}
-              alt="Hammer Review Logo"
-            />
-          </Link>
-          </div>
           <nav className="flex-grow sm:flex-grow-0 min-h-screenmt-4 mt-4 md:mt-0">
             <ul className="flex justify-center">
               <li className="mx-4 font-semibold uppercase">
