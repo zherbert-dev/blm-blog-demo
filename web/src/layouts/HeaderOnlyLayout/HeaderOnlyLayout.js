@@ -118,6 +118,26 @@ const HeaderOnlyLayout = (props) => {
           </section>
         </main>
         <footer className="bg-indigo-600 text-indigo-200 text-sm text-center py-4">
+          <div>
+            <ul className="flex justify-center">
+              <li>
+                <a href='https://facebook.com'>
+                  <img
+                    src={FbLogo}
+                    alt="Facebook Page"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href='https://twitter.com'>
+                  <img
+                    src={TwitterLogo}
+                    alt="Twitter Page"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
           Copyright ©2019 Harrisonburg BLM Movement
         </footer>
       </div>

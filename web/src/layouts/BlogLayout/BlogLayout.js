@@ -34,24 +34,6 @@ const BlogLayout = (props) => {
                 />
               </Link>
             </div>
-            <div>
-          <Link to='https://facebook.com'>
-              <img
-                className="w-56 inline-block"
-                src={FbLogo}
-                alt="Facebook Page"
-              />
-            </Link>
-          </div>
-          <div>
-          <Link to=''>
-            <img
-              className="w-56 inline-block"
-              src={TwitterLogo}
-              alt="Hammer Review Logo"
-            />
-          </Link>
-          </div>
           </div>
 
           <nav className="flex-grow sm:flex-grow-0 min-h-screenmt-4 mt-4 md:mt-0">
@@ -120,7 +102,27 @@ const BlogLayout = (props) => {
             {props.children}
           </section>
         </main>
-        <footer className="bg-indigo-600 text-indigo-200 text-sm text-center py-4">
+        <footer className="bg-purple-600 text-indigo-200 text-sm text-center py-4">
+          <div>
+            <ul className="flex justify-center">
+              <li>
+                <a href='https://facebook.com'>
+                  <img
+                    src={FbLogo}
+                    alt="Facebook Page"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href='https://twitter.com'>
+                  <img
+                    src={TwitterLogo}
+                    alt="Twitter Page"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
           Copyright ©2019 Harrisonburg BLM Movement
         </footer>
       </div>

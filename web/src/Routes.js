@@ -6,11 +6,7 @@ const Routes = () => {
       <Private unauthorized="home">
         <Route path="/admin" page={AdminPostsPage} name="admin" />
         <Route path="/admin/new" page={AdminNewPostPage} name="adminNew" />
-        <Route
-          path="/admin/{id}/edit"
-          page={AdminEditPostPage}
-          name="adminEdit"
-        />
+        <Route path="/admin/{id}/edit" page={AdminEditPostPage} name="adminEdit"/>
       </Private>
 
       <Route path="/" page={HomePage} name="home" />
