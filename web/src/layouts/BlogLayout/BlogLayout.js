@@ -4,6 +4,9 @@ import { useAuth } from '@redwoodjs/auth'
 
 import logo from './logo.png'
 import Spinner from './spinner.svg'
+import FbLogo from '../../../public/images/fb-logo-trans.png'
+import TwitterLogo from '../../../public/images/twitter-logo-trans.png'
+
 
 const BlogLayout = (props) => {
   const { authenticated, logIn, logOut } = useAuth()
@@ -27,13 +30,41 @@ const BlogLayout = (props) => {
                 <img
                   className="w-56 inline-block"
                   src={logo}
-                  alt="Hammer Review Logo"
+                  alt="BLM Logo"
                 />
               </Link>
             </div>
+            <div>
+          <Link to='https://facebook.com'>
+              <img
+                className="w-56 inline-block"
+                src={FbLogo}
+                alt="Facebook Page"
+              />
+            </Link>
           </div>
+          <div>
+          <Link to=''>
+            <img
+              className="w-56 inline-block"
+              src={TwitterLogo}
+              alt="Hammer Review Logo"
+            />
+          </Link>
+          </div>
+          </div>
+
           <nav className="flex-grow sm:flex-grow-0 min-h-screenmt-4 mt-4 md:mt-0">
             <ul className="flex justify-center">
+              <li className="mx-4 font-semibold uppercase">
+                <NavLink
+                  to={routes.home()}
+                  className="text-purple-600 hover:text-indigo-800"
+                  activeClassName="bg-white text-indigo-600 px-2 py-1 rounded"
+                >
+                  Home
+                </NavLink>
+              </li>
               <li className="mx-4 font-semibold uppercase">
                 <NavLink
                   to={routes.about()}

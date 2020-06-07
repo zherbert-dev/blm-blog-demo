@@ -110,7 +110,7 @@ const PostForm = (props) => {
       <label className={CSS.label}>Splash Image</label>
 
       <ReactFilestack
-        apikey='A32ITSmt6QSOwUWDJ2o7Lz'
+        apikey={process.env.FILESTACK_API_KEY}
         onSuccess={onFileUpload}
         componentDisplayMode={{
           type: 'immediate',
